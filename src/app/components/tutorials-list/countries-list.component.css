@@ -1,0 +1,33 @@
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+}
+#country {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#country td, #country th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#country td img {
+  border: 1px solid #ddd;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#country tr:nth-child(even){background-color: #f2f2f2;}
+
+#country tr:hover {background-color: #ddd;}
+
+#country th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+}

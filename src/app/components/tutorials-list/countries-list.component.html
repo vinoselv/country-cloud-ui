@@ -1,0 +1,67 @@
+<div class="list row">
+  <div class="col-md-8" >
+    <div class="input-group mb-3" >
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Filter by name"
+        (click)="resetSelection()"
+        [(ngModel)]="name"
+      />
+      <div *ngFor="let item of countries | search:'name':name"></div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Country List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let country of countries | search:'name':name; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveCountry(country, i)"
+      >
+        {{ country.name }} ({{ country.country_code }})
+      </li>
+    </ul>
+
+  </div>
+
+  <div *ngIf="!currentCountry.name">
+    <br />
+    <p> Please click on a Country to view details...</p>
+  </div>
+
+  <div class="col-md-6">
+    <div *ngIf="currentCountry.name">
+
+      <h4>Country details</h4>
+      <table id="country">
+        <tr >
+          <th colspan="3">{{ currentCountryDetails.name }}</th>
+        </tr>
+        <tr>
+          <td colspan="2" class="flag">
+            <img src="{{ currentCountryDetails.flag_file_url }}" width="250" height="200"/>
+          </td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td>{{ currentCountryDetails.name }}</td>
+        </tr>
+        <tr>
+          <td>Country Code</td>
+          <td>{{ currentCountryDetails.country_code }}</td>
+        </tr>
+        <tr>
+          <td>Capital</td>
+          <td>{{ currentCountryDetails.capital }}</td>
+        </tr>
+        <tr>
+          <td>Population</td>
+          <td>{{ currentCountryDetails.population }}</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>
